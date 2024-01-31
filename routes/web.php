@@ -15,24 +15,26 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
-});
-
-Route::get(uri: '/welcome-page', action: function () {
-    return response(content:'<h2> Welcome on our awesome page! </h2>', status: 200)
-        ->header(key: 'Content-Type', values: 'text/plain')
-        ->header(key: 'foo', values: 'custom-value');
-});
-
-Route::get(uri: '/posts/{id}', action: function ($id) {
-    /**
-     * dd() - is a helper method for debugging
-     */
-    //dd($id);
-    return response(content: 'This is ' . $id . 'th post');
-})->where(name:'id', expression: '[0-9]+');
-
-Route::get(uri: '/search', action: function (Request $request) {
-    //dd(vars: $request);
-    return 'Welcome, ' . $request->user . ' from ' . $request->city . '!';
+    return view('listings', [
+        'heading' => 'These are the latest listings!',
+        'listings' => [
+            [
+                'id' => '1',
+                'title' => 'Listing One',
+                'description' => 'Spanish (español) or Castilian (castellano) 
+                    is a Romance language of the Indo-European language family 
+                    that evolved from the Vulgar Latin spoken on the Iberian 
+                    Peninsula of Europe'
+            ],
+            [
+                'id' => '2',
+                'title' => 'Listing Two',
+                'description' => 'Romanian is a Romance language, belonging to 
+                    the Italic branch of the Indo-European language family, 
+                    having much in common with languages such as Italian, 
+                    Spanish, French and Portuguese. Compared with the other Romance 
+                    languages, the closest relative of Romanian is Italian.'
+            ]
+        ]
+    ]);
 });

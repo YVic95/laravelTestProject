@@ -18,12 +18,12 @@ Route::get('/', function () {
     return view('listings', [
         'heading' => 'These are the latest listings!',
         //fetching parameters from the Eloquent Model
-        'listings' => Listing::getAll()
+        'listings' => Listing::all()
     ]);
 });
 
 Route::get('/listing/{id}', function ($id) {
     return view('listing', [
-        'listing' => Listing::getSingle($id)
+        'listing' => Listing::find($id)
     ]);
 });

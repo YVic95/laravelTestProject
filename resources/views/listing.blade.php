@@ -1,5 +1,5 @@
 @extends('layout')
 @section('listing-content')
-    <h2>{{$listing['title']}}</h2>
+    <h1 class="text-3xl font-bold underline">{{$listing['title']}}</h1>
     <p>{{$listing['description']}}</p>
 @endsection

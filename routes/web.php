@@ -16,8 +16,7 @@ use App\Models\Listing;
 
 Route::get('/', function () {
     return view('listings', [
-        'heading' => 'These are the latest listings!',
-        //fetching parameters from the Eloquent Model
+        //fetching listings from the Eloquent Model
         'listings' => Listing::all()
     ]);
 });

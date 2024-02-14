@@ -1,6 +1,10 @@
 @extends('layout')
 @section('listing-content')
+    {{-- Site Banner --}}
+    @include('partials._banner')
+    {{-- Site Serach --}}
     @include('partials._search')
+    {{-- Listings Content --}}
     <div class="lg:grid lg:grid-cols-2 gap-4 space-y-4 md:space-y-0 mx-4">
         @forelse ($listings as $listing)
             <div class="bg-gray-50 border border-gray-400 rounded p-6">

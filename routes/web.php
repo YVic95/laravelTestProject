@@ -21,8 +21,10 @@ Route::get('/', function () {
     ]);
 });
 
-Route::get('/listing/{id}', function ($id) {
+// Injects the Listing model instance directly into the route
+// instead of retrieving just only single listing id
+Route::get('/listing/{listing}', function (Listing $listing) {
     return view('listing', [
-        'listing' => Listing::find($id)
+        'listing' => $listing
     ]);
 });

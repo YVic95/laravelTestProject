@@ -6,7 +6,7 @@
         Back
     </a>
     <div class="mx-4">
-        <div class="bg-gray-50 border border-gray-400 rounded p-10 mb-32">
+        <x-card class="p-10 mb-32">
             <div class="flex flex-col align-center justify-center text-center items-center">
                 <img class="w-48 mr-6 mb-6" src="{{asset('images/no-image.png')}}" alt="">
                 <h3 class="text-2xl mb-2">{{$listing->title}}</h1>
@@ -42,6 +42,6 @@
                     </div> 
                 </div>      
             </div>
-        </div>
+        </x-card>
     </div> 
 @endsection

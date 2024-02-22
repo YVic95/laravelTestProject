@@ -13,9 +13,13 @@ class Listing extends Model
     /**
      * Scope a query to only include listings of a given type (by tag).
      */
-    public function scopeFilterByTag(Builder $query, array $filters) {
+    public function scopeFilterByTagAndSearch(Builder $query, array $filters) {
         if(($filters['tag']) ?? false) {
             $query->where('tags', 'like', '%'.request('tag').'%');
+        }
+        if(($filters['search']) ?? false) {
+            $query->where('title', 'like', '%'.request('search').'%')
+                ->orWhere('tags', 'like', '%'.request('search').'%');
         }
     }
 }

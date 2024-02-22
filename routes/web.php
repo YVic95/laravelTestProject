@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ListingController;
 use Illuminate\Support\Facades\Route;
 use App\Models\Listing;
 
@@ -14,17 +15,6 @@ use App\Models\Listing;
 |
 */
 
-Route::get('/', function () {
-    return view('listings', [
-        //fetching listings from the Eloquent Model
-        'listings' => Listing::all()
-    ]);
-});
+Route::get('/', [ListingController::class, 'index']);
 
-// Injects the Listing model instance directly into the route
-// instead of retrieving just only single listing id
-Route::get('/listing/{listing}', function (Listing $listing) {
-    return view('listing', [
-        'listing' => $listing
-    ]);
-});
+Route::get('/listing/{listing}', [ListingController::class, 'show']);

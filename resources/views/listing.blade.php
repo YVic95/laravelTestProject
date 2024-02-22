@@ -11,20 +11,10 @@
                 <img class="w-48 mr-6 mb-6" src="{{asset('images/no-image.png')}}" alt="">
                 <h3 class="text-2xl mb-2">{{$listing->title}}</h1>
                 <div class="text-xl font-bold mb-4">{{$listing->company}}</div>
-                <ul class="flex align-center justify-center">
-                    <li class="flex items-center justify-center bg-black text-white rounded-xl py-1 px-3 mr-2 text-xs">
-                        <a href="#">Laravel</a>
-                    </li>
-                    <li class="flex items-center justify-center bg-black text-white rounded-xl py-1 px-3 mr-2 text-xs">
-                        <a href="#">Backend</a>
-                    </li>
-                    <li class="flex items-center justify-center bg-black text-white rounded-xl py-1 px-3 mr-2 text-xs">
-                        <a href="#">API</a>
-                    </li>
-                    <li class="flex items-center justify-center bg-black text-white rounded-xl py-1 px-3 mr-2 text-xs">
-                        <a href="#">Vue</a>
-                    </li>
-                </ul>
+                
+                {{-- Tags Component --}}
+                <x-listing-tag :tagsCsv="$listing->tags" />
+
                 <div class="text-xl mt-4 mb-4"><i class="fa-solid fa-location-dot mr-1"></i>{{$listing->location}}</div>
                 <div class="border border-gray-200 w-full mb-6"></div>
                 <div>

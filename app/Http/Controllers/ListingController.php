@@ -10,8 +10,8 @@ class ListingController extends Controller
     // Show all listings
     public function index() {
         return view('listings.index', [
-            //fetch listings from the Eloquent Model
-            'listings' => Listing::all()
+            //fetch listings from the Listing Model (table)
+            'listings' => Listing::latest()->filterByTag(request(['tag']))->get()
         ]);
     }
 

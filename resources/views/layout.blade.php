@@ -15,6 +15,7 @@
     {{--VIEW OUTPUT--}}
     <main>
         @yield('listing-content')
+        @yield('listing-form')
     </main>
     {{--Footer section--}}
     @include('partials._footer')

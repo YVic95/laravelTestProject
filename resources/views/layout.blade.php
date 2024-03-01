@@ -19,5 +19,6 @@
     </main>
     {{--Footer section--}}
     @include('partials._footer')
+    <x-flash-message />
 </body>
 </html>

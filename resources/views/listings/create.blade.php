@@ -9,14 +9,16 @@
             @csrf
             <div class="mb-4">
                 <label for="company" class="text-lg font-bold inline-block">Company name</label>
-                <input type="text" name="company" class="border-2 border-gray-300 rounded-md w-full p-1 mt-2" />
+                <input type="text" name="company" value="{{ old('company') }}"
+                       class="border-2 border-gray-300 rounded-md w-full p-1 mt-2" />
                 @error('company')
                     <p class="text-xs font-bold text-red-600">{{$message}}</p>
                 @enderror
             </div>
             <div class="mb-4">
                 <label for="title" class="text-lg font-bold inline-block">Job Title</label>
-                <input type="text" name="title" placeholder="Example: Middle Laravel Developer"
+                <input type="text" name="title" value="{{ old('title') }}"
+                       placeholder="Example: Middle Laravel Developer"
                        class="border-2 border-gray-300 rounded-md w-full p-1 mt-2"
                 />
                 @error('title')
@@ -25,7 +27,8 @@
             </div>
             <div class="mb-4">
                 <label for="location" class="text-lg font-bold inline-block">Job Location</label>
-                <input type="text" name="location" placeholder="Example: Remote, Germany, etc."
+                <input type="text" name="location" value="{{ old('location') }}"
+                       placeholder="Example: Remote, Germany, etc."
                        class="border-2 border-gray-300 rounded-md w-full p-1 mt-2"
                 />
                 @error('location')
@@ -34,7 +37,7 @@
             </div>
             <div class="mb-4">
                 <label for="website" class="text-lg font-bold inline-block">Website/Application URL</label>
-                <input type="text" name="website"
+                <input type="text" name="website" value="{{ old('website') }}"
                        class="border-2 border-gray-300 rounded-md w-full p-1 mt-2"
                 />
                 @error('website')
@@ -43,7 +46,7 @@
             </div>
             <div class="mb-4">
                 <label for="email" class="text-lg font-bold inline-block">Email</label>
-                <input type="email" name="email"
+                <input type="email" name="email" value="{{ old('email') }}"
                        class="border-2 border-gray-300 rounded-md w-full p-1 mt-2"
                 />
                 @error('email')
@@ -52,7 +55,7 @@
             </div>
             <div class="mb-4">
                 <label for="tags" class="text-lg font-bold inline-block">Tags (Separate them with comma)</label>
-                <input type="text" name="tags"
+                <input type="text" name="tags" value="{{ old('tags') }}"
                        placeholder="Example: Laravel, Vue, MySql"
                        class="border-2 border-gray-300 rounded-md w-full p-1 mt-2"
                 />
@@ -70,7 +73,7 @@
                 <label for="description" class="text-lg font-bold inline-block">Job Description</label>
                 <textarea name="description" class="border-2 border-gray-300 rounded-md w-full p-1 mt-2" 
                           rows="10" placeholder="Include tasks, requirements, salary, etc."
-                ></textarea>
+                >{{ old('description') }}</textarea>
                 @error('desc')
                     <p class="text-xs text-red-600 font-bold">{{$message}}</p>
                 @enderror

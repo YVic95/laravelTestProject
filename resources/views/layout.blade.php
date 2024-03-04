@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="icon" href="images/favicon.ico" />
+    <script src="//unpkg.com/alpinejs" defer></script>
     <script src="https://kit.fontawesome.com/7de7010138.js" crossorigin="anonymous"></script>
     @vite('resources/css/app.css')
     <title>Find Laravel Jobs & Projects</title>

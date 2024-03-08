@@ -5,7 +5,7 @@
             <h3 class="font-bold text-2xl uppercase text-center">Create a job</h3>
             <p class="text-center text-base">Post a job to find a developer</p>
         </header>
-        <form method="POST" action="/listings">
+        <form method="POST" action="/listings" enctype="multipart/form-data">
             @csrf
             <div class="mb-4">
                 <label for="company" class="text-lg font-bold inline-block">Company name</label>
@@ -63,12 +63,15 @@
                     <p class="text-xs font-bold text-red-600">{{$message}}</p>
                 @enderror
             </div>
-            {{-- <div class="mb-4">
+            <div class="mb-4">
                 <label for="logo" class="text-lg font-bold inline-block">Company Logo</label>
                 <input type="file" name="logo"
                        class="border-2 border-gray-300 rounded-md w-full p-1 mt-2"
                 />
-            </div>  --}}
+                @error('logo')
+                    <p class="text-xs font-bold text-red-600">{{$message}}</p>
+                @enderror
+            </div> 
             <div class="mb-4">
                 <label for="description" class="text-lg font-bold inline-block">Job Description</label>
                 <textarea name="description" class="border-2 border-gray-300 rounded-md w-full p-1 mt-2" 

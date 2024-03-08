@@ -12,7 +12,7 @@ class Listing extends Model
     /**
      * The attributes (table columns) that are mass assignable.
      */
-    protected $fillable = ['company', 'title', 'location', 'website', 'email', 'tags', 'description'];
+    protected $fillable = ['company', 'title', 'logo', 'location', 'website', 'email', 'tags', 'description'];
 
     /**
      * Scope a query to only include listings of a given type (by tag).

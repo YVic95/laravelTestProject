@@ -12,4 +12,7 @@
             <h2 class="text-2xl font-bold">No listings found!</h2>
         @endforelse
     </div>
+    <div class="mt-6 p-4">
+        {{ $listings->onEachSide(3)->links() }}
+    </div>
 @endsection

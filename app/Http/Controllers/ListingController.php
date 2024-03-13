@@ -10,7 +10,6 @@ class ListingController extends Controller
 {
     // Show all listings
     public function index() {
-        // dd(Listing::latest()->filterByTagAndSearch(request(['tag', 'search']))->paginate(2));
         return view('listings.index', [
             //fetch listings from the Listing Model (table)
             'listings' => Listing::latest()->filterByTagAndSearch(request(['tag', 'search']))->paginate(4)
@@ -18,6 +17,7 @@ class ListingController extends Controller
     }
 
     // Show single listing
+
     // Injects the Listing model instance directly into the route
     // instead of retrieving just only single listing id
     public function show(Listing $listing) {
@@ -33,7 +33,6 @@ class ListingController extends Controller
 
     // Store listing data
     public function store(Request $request) {
-        //dd($request->all());
         $validatedFields = $request->validate([
             'company' => ['required', Rule::unique('listings', 'company')],
             'title' => 'required',
@@ -46,8 +45,15 @@ class ListingController extends Controller
         if($request->hasFile('logo')) {
             $validatedFields['logo'] = $request->file('logo')->store('logos', 'public');
         }
+        // Save new record to listing table
         Listing::create($validatedFields);
 
         return redirect('/')->with('message', 'Listing was created successfuly!');
+    }
+
+    // Show Edit Form
+    public function edit(Listing $listing) {
+        //dd($listing);
+        return view('listings.edit', ['listing' => $listing]);
     }
 }
